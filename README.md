@@ -15,19 +15,19 @@ mongocxx封装，支持集群、异步和同步
     cd build
     cmake ..
     make && make install
-  ### build mongo-c-driver
+  ### mongo-c-driver
     cd mongo-c-driver
     mkdir build
     cd build
     cmake ..
     make && make install
-  ### build bsoncxx
+  ### bsoncxx
     cd mongo-cxx-driver/src
     mkdir build
     cd build
     cmake ..
     make && make install
-  ### build mongo-cxx-driver
+  ### mongo-cxx-driver
     cd mongo-cxx-driver
     cmake -DCMAKE_BUILD_TYPE=Release -DBSONCXX_POLY_USE_BOOST=1 -DBOOST_ROOT=boost_root -DCMAKE_INSTALL_PREFIX=/usr/local
 ## Windows
