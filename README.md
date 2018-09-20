@@ -1,5 +1,5 @@
 ## mongopp
-mongocxx封装，支持异步和同步
+mongocxx封装，支持集群、异步和同步
 
 ### 使用前需要下载安装
     mongo-c-driver
@@ -51,7 +51,20 @@ mongocxx封装，支持异步和同步
     mkdir build
     cd build
     cmake -G "Visual Studio 15 2017" "-DENABLE_SSL=WINDOWS" "-DENABLE_SASL=SSPI" "-DCMAKE_INSTALL_PREFIX=mongo-c-driver_include" "-DCMAKE_PREFIX_PATH=mongo-c-driver_lib" "-DCMAKE_BUILD_TYPE=Release"
-  
+
+    第三方库目录
+    3rd/include/boost
+    3rd/include/bsoncxx
+    3rd/include/libbson
+    3rd/include/libmongoc
+    3rd/include/mongocxx
+
+    3rd/lib/debug|release
+    3rd/lib/debug|release
+    3rd/lib/debug|release
+    3rd/lib/debug|release
+    3rd/lib/debug|release
+
   ### mongopp
     mkdir build
     cd build
@@ -84,18 +97,18 @@ mongocxx封装，支持异步和同步
     //ͬ同步
     auto conn2 = SmartPtr<db::MongoWrapper>(new db::MongoWrapper);
     conn2->initConnection("127.0.0.1", db::ReadMode::k_primary, "", "dbName",     "user", "pwd");
-    
+
     db::MongoWrapper::autoCursor cursor;
     auto error = conn2->selectMany(cursor, "testDB", "{'name':'name'}", " {'hello':'world'}","{'age':-1}");
     if (db::E_SUCCESS == error)
     {
         for (auto&& it = cursor->begin(); it != cursor->end(); it++){
             for (auto&& element : *it){
-              
+
             }
         }
     }
     else
     {
-      
+
     }
